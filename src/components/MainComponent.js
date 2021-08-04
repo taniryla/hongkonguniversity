@@ -6,6 +6,7 @@ import Footer from './FooterComponent';
 import Home from './HomeComponent';
 import Contact from './ContactComponent';
 import About from './AboutComponent';
+import DishDetail from './DishDetailComponent';
 
 import { Switch, Route, Redirect, withRouter } from 'react-router-dom';
 import { connect } from 'react-redux';
@@ -24,12 +25,12 @@ const mapStateToProps = state => {
 
 const mapDispatchToProps = (dispatch) => ({
     postComment: (dishId, rating, author, comment) => dispatch(postComment(dishId, rating, author, comment)),
+    postFeedback: (feedback) => dispatch(postFeedback(feedback)),
     fetchDishes: () => { dispatch(fetchDishes()) },
-    resetFeedbackForm: () => { dispatch(actions.reset('feedback'))},
-    fetchPromos: () => { dispatch(fetchPromos()) },
     fetchComments: () => { dispatch(fetchComments()) },
+    fetchPromos: () => { dispatch(fetchPromos()) },
     fetchLeaders: () => { dispatch(fetchLeaders()) },
-    postFeedback: (feedback) => dispatch(postFeedback(feedback))
+    resetFeedbackForm: () => { dispatch(actions.reset('feedback'))},
 });
 
 class Main extends Component {
